@@ -64,12 +64,14 @@ import matplotlib.pyplot as plt
 # 3
 
 x = np.arange(0, 5.1, 0.01)
-y_el = np.zeros(len(x))
-y_el[0] = 1
-for i in range(1, len(x)):
-    y_el[i] = y_el[i-1] + 0.01 * (y_el[i-1]*(1-2*x[i-1]))
+def turn_in_eler(x):
+    y_el = np.zeros(len(x))
+    y_el[0] = 1
+    for i in range(1, len(x)):
+        y_el[i] = y_el[i-1] + 0.01 * (y_el[i-1]*(1-2*x[i-1]))
+    return y_el
+y_el = turn_in_eler(x)
 # print(y_el)
-
 y_an = np.exp(x-x**2)
 # print(y_an)
 
